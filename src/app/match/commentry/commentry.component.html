@@ -1,0 +1,25 @@
+<p>
+  commentry works!
+</p>
+<div class="container">
+  <div class="row">
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">StatusPerOver</th>
+          <th scope="col">PerBallRuns</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let commentry of matchService.getMatch().getCommentry()" style="margin-bottom: 10px;">
+          
+          <td>{{commentry.getCurrentOver()}}.{{commentry.getCurrentBall()}}</td> 
+          <td>{{commentry.getRunsOnCurrentBall()}}.{{commentry.getDescriptionForBall()}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

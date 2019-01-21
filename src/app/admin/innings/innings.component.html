@@ -1,0 +1,103 @@
+
+<div class="container">
+  <div class="row  justify-content-md-center">
+     <div class="card w-50 mt-2 jumbotron btn-block ">
+        <div class="card-header text-center">Match Started</div>
+        <div class="card-body ">
+           <div class="form-label-group my-2">
+              <label for="">Select Batsman On Strike </label>
+              <select class="hideLabel form-control col-md-8 ml-5" id="name" 
+              [(ngModel)]='onStrikeBatsmanName'>
+              <option selected="">select Player</option>
+              <option *ngFor="let batsman of matchService.getMatch().getBattingTeam().getPlayers() ">
+                {{batsman.name}}
+              </option>
+              </select>
+           </div>
+           <div class="form-label-group my-2 ">
+              <label for="">Select New Batsman </label>
+              <select class="hideLabel form-control col-md-8 ml-5" id="name" 
+              [(ngModel)]='nonStrikeBatsmanName'>
+              <option selected="">select Player</option>
+              <option *ngFor="let batsman of matchService.getMatch().getBattingTeam().getPlayers()">
+                {{batsman.name}}
+              </option>
+              </select>
+           </div>
+           <div class="form-label-group my-2 ">
+              <label for="">Select New Bowler</label>
+              <select class="hideLabel form-control col-md-8 ml-5" id="name"
+               [(ngModel)]='bowlerName'>
+              <option selected="">select Player</option>
+              <option *ngFor="let bowler1 of matchService.getMatch().getBallingTeam().getPlayers()">
+                {{bowler1.name}}</option>
+              </select>
+           </div>
+           <div class="form-label-group my-2">
+              <label>Ball</label>
+              <div>
+                 <input type="text" class="col-md-8 ml-5" [(ngModel)]='balls'>
+              </div>
+           </div>
+           <div class="form-label-group ">
+              <label> Runs Per Ball</label>
+              <select id="run" class="hideLabel form-control col-md-8 ml-5" 
+              [(ngModel)]='runsPerBall'>
+              <option hidden value="default">Select Run</option>
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>6</option>
+              <option>Wicket</option>
+              </select>
+           </div>
+           <div class="form-label-group my-2 ">
+              <label for="">Wicket</label>
+              <select class="hideLabel form-control col-md-8 ml-5" 
+              [(ngModel)]='wicketType'>
+              <option selected="">Select Wicket</option>
+              <option>Catch</option>
+              <option>Bold</option>
+              <option>Runout</option>
+              <option>Stumping</option>
+              <option>Hitwicket</option>
+              </select>
+           </div>
+           <div class="form-label-group my-2">
+              <label for="">Catch By</label>
+              <select class="hideLabel form-control col-md-8 ml-5" id="name" 
+              [(ngModel)]='catchBy'>
+              <option selected="">select Player</option>
+              <option *ngFor="let bowler of matchService.getMatch().getTeam1().getPlayers()">
+                {{bowler.name}}
+              </option>
+              </select>
+           </div>
+           <div class="form-label-group my-2 ">
+              <label for="">Runout By</label>
+              <select class="hideLabel form-control col-md-8 ml-5" id="name" 
+              [(ngModel)]='runOutBy'>
+              <option *ngFor="let bowler of matchService.getMatch().getTeam1().getPlayers() ">
+                {{bowler.name}}
+              </option>
+              </select>
+           </div>
+           <div class="form-label-group my-2 ">
+              <label for="">Total Number Of Overs</label>
+              <input type="text" class="col-md-8 ml-5" [(ngModel)]='numberOfOvers'>
+           </div>
+            <div class="form-label-group my-2 ">
+              <label for="">Commentry</label>
+              <div>
+                 <textarea class="col-md-8 ml-5" [(ngModel)]='commentry'></textarea>
+              </div>
+            </div>
+           <button class="btn btn-lg btn-primary btn-block text-uppercase col-md-8 ml-5" 
+            type="button" (click)="onAddScoreClick()">AddScore</button>
+        </div>
+     </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
